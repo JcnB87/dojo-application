@@ -6,11 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="dojo-application" />
+        <module name="supermarket-checkout-system" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="dojo-application" target="17" />
+      <module name="supermarket-checkout-system" target="17" />
     </bytecodeTargetLevel>
   </component>
 </project>

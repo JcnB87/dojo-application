@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/dojo-application.iml" filepath="$PROJECT_DIR$/.idea/dojo-application.iml" />
+      <module fileurl="file://$PROJECT_DIR$/supermarket-checkout-system/supermarket-checkout-system.iml" filepath="$PROJECT_DIR$/supermarket-checkout-system/supermarket-checkout-system.iml" />
     </modules>
   </component>
 </project>
