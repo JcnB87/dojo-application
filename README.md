@@ -23,8 +23,8 @@ Use these prices for the sample:
 
 | Item | Unit Price | Special Price (pence) |
 |------|------------|-----------------------|
-|A     |50          |3 for 130              |
-|B     |30          |2 for 45               |
+|A     |50          |3 (quantity) for 130   |
+|B     |30          |2 (quantity) for 45    |
 |C     |20          |                       |
 |D     |15          |                       |
 
