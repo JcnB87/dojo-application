@@ -43,6 +43,6 @@ public class SuperMarketCheckoutSystemApp {
             }
         }
         scanner.close();
-        System.out.println("Thank you for shopping at our store!");
+        System.out.println("Payment accepted! Thank you for shopping at our store!");
     }
 }

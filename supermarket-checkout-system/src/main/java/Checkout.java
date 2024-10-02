@@ -11,16 +11,11 @@ public class Checkout {
         this.scannedItems = new HashMap<>();
     }
 
-    public Checkout(Map<String, Product> pricedRules, Map<String, Integer> scannedItems) {
-        this.pricedRules = pricedRules;
-        this.scannedItems = scannedItems;
-    }
-
     /**
      * @param sku receives the argument from console input. i.e: 'A'.
-     *            This method will check if sku 'A' exists in our list of items (if key 'A' exists from our map 'pricedRules')
-     *            then increment by 1.
-     *            If not, will throw an IllegalArgumentException with the message.
+     * This method will check if sku 'A' exists in our list of items (if key 'A' exists from our map 'pricedRules')
+     * then increment by 1.
+     * If not, will throw an IllegalArgumentException with the message.
      */
     public void scanItems(String sku) {
         if (!pricedRules.containsKey(sku)) {
@@ -30,7 +25,22 @@ public class Checkout {
         System.out.println("Scanned item: " + sku);
     }
 
+    /**
+     * This method sum the total items from the shopping list
+     *
+     * @return total shopping
+     *
+     * i.e: inputting item 'A' twice (of value 50), will return 100, and so on.
+     */
     public int calculateTotal() {
-        return 0;
+        int total = 0;
+
+        for (Map.Entry<String, Integer> skyEntry : scannedItems.entrySet()) {
+            String sku = skyEntry.getKey();
+            int quantity = skyEntry.getValue();
+            Product product = pricedRules.get(sku);
+            total += quantity * product.getUnitPrice();
+        }
+        return total;
     }
 }
