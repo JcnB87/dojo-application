@@ -39,4 +39,14 @@ public class CheckoutTest {
     public void test_ScanInvalidItem() {
         checkout.scanItems("Y");
     }
+
+    //TDD approach -> test is failing, needs logic for bundles
+    @Test
+    public void test_ScanItemAWithBundle() {
+        checkout.scanItems("A");
+        checkout.scanItems("A");
+        checkout.scanItems("A");
+        int total = checkout.calculateTotal();
+        assertEquals(130, total);
+    }
 }
