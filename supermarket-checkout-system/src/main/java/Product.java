@@ -1,10 +1,8 @@
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-@AllArgsConstructor
 public class Product {
 
     private String sku;
@@ -12,4 +10,15 @@ public class Product {
     private int specialQuantity;
     private int specialPrice;
 
+    public Product(String sku, int unitPrice, int specialQuantity, int specialPrice) {
+        this.sku = sku;
+        this.unitPrice = unitPrice;
+        this.specialQuantity = specialQuantity;
+        this.specialPrice = specialPrice;
+    }
+
+    public Product(String sku, int unitPrice) {
+        this.sku = sku;
+        this.unitPrice = unitPrice;
+    }
 }
