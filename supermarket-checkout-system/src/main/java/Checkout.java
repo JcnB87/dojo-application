@@ -1,6 +1,11 @@
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * This class represent a supermarket checkout system, containing all the logic to perform:
+ * 1. Check if the scanned items exist or not. (scanItems()).
+ * 2. Price calculation, checking if it is with bundle or not (calculateTotal()).
+ */
 public class Checkout {
 
     private Map<String, Product> pricedRules;
