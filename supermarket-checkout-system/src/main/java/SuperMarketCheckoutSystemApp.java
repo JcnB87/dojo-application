@@ -20,7 +20,7 @@ public class SuperMarketCheckoutSystemApp {
         pricingRules.put("C", itemC);
         pricingRules.put("D", itemD);
 
-        //Create checkout system
+        //Create Checkout system instance and passing pricingRules to the system.
         Checkout checkout = new Checkout(pricingRules);
 
         //Scanner for console inputs
