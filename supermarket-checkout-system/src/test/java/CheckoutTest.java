@@ -40,7 +40,7 @@ public class CheckoutTest {
         checkout.scanItems("Y");
     }
 
-    //TDD approach -> test is failing, needs logic for bundles
+    //The following tests were implemented with TDD approach
     @Test
     public void test_ScanAndCalculate_ItemAWithBundle() {
         checkout.scanItems("A");
