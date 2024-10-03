@@ -21,14 +21,14 @@ public class CheckoutTest {
     }
 
     @Test
-    public void test_ScanItemA() {
+    public void test_ScanAndCalculate_ItemA() {
         checkout.scanItems("A");
         int total = checkout.calculateTotal();
         assertEquals(50, total);
     }
 
     @Test
-    public void test_ScanMixedItemAAndItemB() {
+    public void test_ScanAndCalculate_ItemAAndItemB() {
         checkout.scanItems("A");
         checkout.scanItems("B");
         int total = checkout.calculateTotal();
@@ -36,13 +36,13 @@ public class CheckoutTest {
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void test_ScanInvalidItem() {
+    public void test_Scan_InvalidItem() {
         checkout.scanItems("Y");
     }
 
     //TDD approach -> test is failing, needs logic for bundles
     @Test
-    public void test_ScanItemA_WithBundle() {
+    public void test_ScanAndCalculate_ItemAWithBundle() {
         checkout.scanItems("A");
         checkout.scanItems("A");
         checkout.scanItems("A");
@@ -51,7 +51,7 @@ public class CheckoutTest {
     }
 
     @Test
-    public void test_ScanItemA_WithBundle_AndExtraProductWithoutBundle() {
+    public void test_ScanAndCalculate_ItemAWithBundle_AndExtraItemAWithoutBundle() {
         checkout.scanItems("A");
         checkout.scanItems("A");
         checkout.scanItems("A");
@@ -61,7 +61,7 @@ public class CheckoutTest {
     }
 
     @Test
-    public void test_ScanItemA_WithTwoBundles_AndExtraProductWithoutBundle() {
+    public void test_ScanAndCalculate_ItemAWithTwoBundles_AndItemBWithoutBundle() {
         checkout.scanItems("A");
         checkout.scanItems("A");
         checkout.scanItems("A");

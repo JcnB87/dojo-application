@@ -27,10 +27,10 @@ public class Checkout {
 
     /**
      * This method calculates the products with and without bundles
-     * i.e.1: inputting item 'A' twice (of value 50), will return 100, and so on.
+     * i.e.1: inputting item 'A' twice (of value 50), will return 100.
      * i.e.2: inputting item 'A' three times, will calculate the bundle and will apply the special price.
-     * i.e.4: inputting item 'A' four times, will calculate the bundle and will apply the special price
-     * And will check if there is more products without bundles, and join them to the TOTAL.
+     * i.e.3: inputting item 'A' four times, will calculate the bundle and will apply the special price
+     * And will check if there is more products, and join them to the TOTAL with or without bundle special price.
      *
      * @return total shopping
      */
@@ -45,7 +45,10 @@ public class Checkout {
             if (product.getSpecialPrice() > 0 && product.getSpecialQuantity() > 0) {
                 int customerSpecialBundleProducts = quantity / product.getSpecialQuantity();
                 int customerProductsWithNoSpecialBundles = quantity % product.getSpecialQuantity();
-                total += customerSpecialBundleProducts * product.getSpecialPrice() + customerProductsWithNoSpecialBundles * product.getUnitPrice();
+
+                total += customerSpecialBundleProducts * product.getSpecialPrice() +
+                        customerProductsWithNoSpecialBundles * product.getUnitPrice();
+
             } else {
                 total += quantity * product.getUnitPrice();
             }

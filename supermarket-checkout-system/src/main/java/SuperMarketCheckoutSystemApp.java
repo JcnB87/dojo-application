@@ -13,7 +13,7 @@ public class SuperMarketCheckoutSystemApp {
         Product itemC = new Product("C", 20);
         Product itemD = new Product("D", 15);
 
-        //Adding products to the basket
+        //Defining pricing rules: sku + items.
         Map<String, Product> pricingRules = new HashMap<>();
         pricingRules.put("A", itemA);
         pricingRules.put("B", itemB);
