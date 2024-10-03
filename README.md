@@ -2,7 +2,7 @@
 ________________________________________________________________________________________________________________________
 Dojo Application - goal: 
 
-Train and practice... ->  will be added a submodule regarding a kata exercise
+Train and practice... ->  will be added a submodule regarding each kata exercise
 
 ------------------------------------------------------------------------------------------------------------------------
 # First Kata project
