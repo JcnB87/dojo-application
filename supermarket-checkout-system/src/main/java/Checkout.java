@@ -26,11 +26,13 @@ public class Checkout {
     }
 
     /**
-     * This method sum the total items from the shopping list
+     * This method calculates the products with and without bundles
+     * i.e.1: inputting item 'A' twice (of value 50), will return 100, and so on.
+     * i.e.2: inputting item 'A' three times, will calculate the bundle and will apply the special price.
+     * i.e.4: inputting item 'A' four times, will calculate the bundle and will apply the special price
+     * And will check if there is more products without bundles, and join them to the TOTAL.
      *
      * @return total shopping
-     *
-     * i.e: inputting item 'A' twice (of value 50), will return 100, and so on.
      */
     public int calculateTotal() {
         int total = 0;
@@ -39,7 +41,14 @@ public class Checkout {
             String sku = skyEntry.getKey();
             int quantity = skyEntry.getValue();
             Product product = pricedRules.get(sku);
-            total += quantity * product.getUnitPrice();
+
+            if (product.getSpecialPrice() > 0 && product.getSpecialQuantity() > 0) {
+                int customerSpecialBundleProducts = quantity / product.getSpecialQuantity();
+                int customerProductsWithNoSpecialBundles = quantity % product.getSpecialQuantity();
+                total += customerSpecialBundleProducts * product.getSpecialPrice() + customerProductsWithNoSpecialBundles * product.getUnitPrice();
+            } else {
+                total += quantity * product.getUnitPrice();
+            }
         }
         return total;
     }

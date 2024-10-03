@@ -14,7 +14,7 @@ public class CheckoutTest {
     public void setup() {
         Map<String, Product> pricedRules = new HashMap<>();
         pricedRules.put("A", new Product("A", 50,3,130));
-        pricedRules.put("B", new Product("B", 45));
+        pricedRules.put("B", new Product("B", 30,2, 45));
         pricedRules.put("C", new Product("C", 20));
         pricedRules.put("D", new Product("D", 15));
         checkout = new Checkout(pricedRules);
@@ -32,7 +32,7 @@ public class CheckoutTest {
         checkout.scanItems("A");
         checkout.scanItems("B");
         int total = checkout.calculateTotal();
-        assertEquals(50 + 45, total);
+        assertEquals(50 + 30, total);
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -42,11 +42,34 @@ public class CheckoutTest {
 
     //TDD approach -> test is failing, needs logic for bundles
     @Test
-    public void test_ScanItemAWithBundle() {
+    public void test_ScanItemA_WithBundle() {
         checkout.scanItems("A");
         checkout.scanItems("A");
         checkout.scanItems("A");
         int total = checkout.calculateTotal();
         assertEquals(130, total);
+    }
+
+    @Test
+    public void test_ScanItemA_WithBundle_AndExtraProductWithoutBundle() {
+        checkout.scanItems("A");
+        checkout.scanItems("A");
+        checkout.scanItems("A");
+        checkout.scanItems("A");
+        int total = checkout.calculateTotal();
+        assertEquals(130 + 50, total);
+    }
+
+    @Test
+    public void test_ScanItemA_WithTwoBundles_AndExtraProductWithoutBundle() {
+        checkout.scanItems("A");
+        checkout.scanItems("A");
+        checkout.scanItems("A");
+        checkout.scanItems("A");
+        checkout.scanItems("A");
+        checkout.scanItems("A");
+        checkout.scanItems("B");
+        int total = checkout.calculateTotal();
+        assertEquals(260 + 30, total);
     }
 }
